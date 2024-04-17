@@ -13,7 +13,7 @@ import {
 import ThemeAndVideoContext from '../../Context/ThemeAndVideoContext'
 
 const HomeVideosRoute = props => {
-  const {videosData, retry} = props
+  const {homeVideos} = props
 
   return (
     <ThemeAndVideoContext.Consumer>
@@ -21,9 +21,9 @@ const HomeVideosRoute = props => {
         const {darkTheme} = value
         return (
           <HomeVideoContainer>
-            {videosData.length > 0 ? (
+            {homeVideos.length > 0 ? (
               <VideoCardListItem>
-                {videosData.map(eachVideo => (
+                {homeVideos.map(eachVideo => (
                   <VideoCard key={eachVideo.id} videoDetails={eachVideo} />
                 ))}
               </VideoCardListItem>
@@ -39,9 +39,7 @@ const HomeVideosRoute = props => {
                 <NoSearchDescribe darkTheme={darkTheme}>
                   Try different key words or remove search filter
                 </NoSearchDescribe>
-                <RetryButton onClick={retry} type="button">
-                  Retry
-                </RetryButton>
+                <RetryButton type="button">Retry</RetryButton>
               </NoSearchContainer>
             )}
           </HomeVideoContainer>
